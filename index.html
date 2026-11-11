@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>烏丸電鉄百貨店 公式ウェブサイト | 烏丸駅直結・沿線と歩む45年</title>
+  <meta name="description" content="烏丸電鉄 烏丸駅直結。雨に濡れずに通勤・帰宅途中に立ち寄れる都市型ターミナル百貨店「烏丸電鉄百貨店」。エキチカごちそうマルシェ、通勤ファッション、カラスマPointのご案内。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Modern Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Zen Kaku Gothic New', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .serif { font-family: 'Noto Serif JP', serif; }
+    
+    /* Railway Brand Colors */
+    :root {
+      --c-rail-blue: #0f2b48;
+      --c-rail-accent: #0284c7;
+      --c-rail-cyan: #06b6d4;
+      --c-rail-emerald: #059669;
+      --c-gold: #c2a66e;
+      --c-gray-border: #e2e8f0;
+      --c-text-muted: #64748b;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Commuter Strip */
+    .top-strip {
+      background: #091a2c;
+      color: #cbd5e1;
+      font-size: 0.8125rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .top-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .badge-direct {
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Modern Navigation Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--c-gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(15,23,42,0.04);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+      gap: 1.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #0f2b48 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.05em;
+      box-shadow: 0 2px 6px rgba(2,132,199,0.3);
+    }
+    .brand-text h1 {
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      color: #0f2b48;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .brand-text span {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      color: var(--c-text-muted);
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    nav a {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #334155;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--c-rail-accent);
+    }
+    .nav-cta {
+      background: var(--c-rail-blue);
+      color: #ffffff !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.8125rem !important;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #1e3a8a; }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: #091a2c;
+      color: #ffffff;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+      filter: saturate(1.1);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 4.5rem 0;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #7dd3fc;
+      background: rgba(2,132,199,0.25);
+      border: 1px solid rgba(125,211,252,0.4);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero-desc {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      font-weight: 700;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* Features 4 Metrics Bar */
+    .metrics-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--c-gray-border);
+      padding: 1.5rem 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .metric-item h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--c-rail-blue);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+    .metric-item p {
+      font-size: 0.75rem;
+      color: var(--c-text-muted);
+      font-weight: 600;
+    }
+
+    /* Section Styles */
+    .section-padding { padding: 4.5rem 0; }
+    .bg-white { background-color: #ffffff; }
+    .bg-slate { background-color: #f1f5f9; }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-en {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--c-rail-accent);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #0f2b48;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      color: var(--c-text-muted);
+      font-size: 0.9375rem;
+      margin-top: 0.5rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Cards & Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .card-modern {
+      background: #ffffff;
+      border: 1px solid var(--c-gray-border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card-modern:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(15,23,42,0.06);
+    }
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-content { padding: 1.5rem; }
+    .card-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--c-rail-accent);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .card-heading {
+      font-size: 1.15rem;
+      color: #0f2b48;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .card-p {
+      font-size: 0.875rem;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    /* Point Card Showcase Box */
+    .point-box {
+      background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 30px rgba(15,43,72,0.15);
+    }
+    .point-badge {
+      background: rgba(14,165,233,0.3);
+      color: #7dd3fc;
+      border: 1px solid rgba(125,211,252,0.3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .point-sim-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 1.75rem;
+      backdrop-blur-md;
+    }
+
+    /* Floor Directory Tabs */
+    .floor-tabs {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--c-gray-border);
+    }
+    .floor-btn {
+      background: #ffffff;
+      border: 1px solid var(--c-gray-border);
+      padding: 0.7rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      color: #0f2b48;
+      cursor: pointer;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .floor-btn.active, .floor-btn:hover {
+      background: var(--c-rail-blue);
+      color: #ffffff;
+      border-color: var(--c-rail-blue);
+    }
+    .floor-display {
+      background: #ffffff;
+      border: 1px solid var(--c-gray-border);
+      border-radius: 8px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+    }
+    .floor-num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--c-rail-accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #091a2c;
+      color: #94a3b8;
+      padding: 4rem 0 2rem;
+      border-top: 3px solid var(--c-rail-accent);
+      font-size: 0.875rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.625rem; }
+    .footer-col a:hover { color: #ffffff; text-decoration: underline; }
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-wrap: wrap; gap: 0.75rem; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .point-box { grid-template-columns: 1fr; }
+      .floor-display { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Commuter Alert Strip -->
+  <div class="top-strip">
+    <div class="container top-strip-inner">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span class="badge-direct">改札直結 徒歩0分</span>
+        <span>烏丸電鉄 烏丸駅中央改札・南改札直通 ｜ 雨に濡れずに快適アクセス</span>
+      </div>
+      <div>
+        <span>本日営業時間：食品街 10:00〜20:30（金曜21:00） / ショッピング 10:00〜20:00 / レストラン 11:00〜22:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo">烏</div>
+        <div class="brand-text">
+          <h1>烏丸電鉄百貨店</h1>
+          <span>KARASUMA RAILWAY DEPT. · 創業45周年 · 烏丸電鉄グループ</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#ekichika">エキチカ食品</a></li>
+          <li><a href="#floors">フロア案内</a></li>
+          <li><a href="#commuter">通勤アパレル</a></li>
+          <li><a href="#points">カラスマPoint</a></li>
+          <li><a href="#access">アクセス・改札案内</a></li>
+          <li><a href="#company" class="nav-cta">企業情報・沿線と共に</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=80" alt="烏丸電鉄百貨店 駅直結外観" class="hero-img">
+    <div class="container hero-content">
+      <span class="hero-tag">STATION DIRECT · SINCE 1981</span>
+      <h2 class="hero-title">
+        改札直結、最短ルート。<br>
+        毎日の通勤・帰宅を、もっとスマートに。
+      </h2>
+      <p class="hero-desc">
+        朝の出勤前のクイックコーヒーから、退勤時30秒で揃うデパ地下の本格ディナーまで。<br>
+        巨大モールにはない「圧倒的なタイパと駅直結の利便性」で、烏丸電鉄沿線で暮らす皆様の毎日を支え続けます。
+      </p>
+      <div class="hero-actions">
+        <a href="#floors" class="btn-primary">全館フロアガイド</a>
+        <a href="#points" class="btn-secondary">沿線ポイント特典・途中下車</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Bar: Core Strengths of Karasuma Railway Dept -->
+  <div class="metrics-bar">
+    <div class="container metrics-grid">
+      <div class="metric-item">
+        <h4>徒歩 0 分</h4>
+        <p>烏丸駅中央改札口 直結（雨天時も傘不要）</p>
+      </div>
+      <div class="metric-item">
+        <h4>72 万人</h4>
+        <p>烏丸電鉄 沿線共通ポイント会員基盤</p>
+      </div>
+      <div class="metric-item">
+        <h4>夜 20:30</h4>
+        <p>エキチカ食品街 営業（金曜日は21:00まで）</p>
+      </div>
+      <div class="metric-item">
+        <h4>創業 45 年</h4>
+        <p>昭和56年創業 烏丸電鉄グループ中核百貨店</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1: Ekichika Gourmet & Commuter Food -->
+  <section id="ekichika" class="section-padding bg-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-en">Transit Gourmet & Depachika</span>
+        <h3 class="section-title">エキチカ「ごちそうマルシェ」＆スイーツストリート</h3>
+        <p class="section-sub">改札を出てすぐ。今夜の食卓をワンランク上にする出来立てデリと、全国有名パティスリー。</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="エキチカスイーツ" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">地下2階・1階 ｜ 洋菓子ストリート</span>
+            <h4 class="card-heading">出張手土産・季節限定スイーツ</h4>
+            <p class="card-p">電車の乗り換え時にサッと買える駅直結の銘菓街。地元名産から全国の人気パティスリーまで、個包装で配りやすい出張ギフトやご褒美スイーツが揃います。</p>
+          </div>
+        </div>
+
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="本格惣菜デリ" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">地下1階 ｜ ごちそうマルシェ</span>
+            <h4 class="card-heading">働く人の夕食を支える本格デリ＆生鮮</h4>
+            <p class="card-p">有名シェフ監修の和洋中デリカテッセンや契約鮮魚店がずらり。夕方18時以降は帰宅客で賑わうタイムセールを実施。疲れた日も手軽に豊かな食卓が完成します。</p>
+          </div>
+        </div>
+
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="エキナカ朝カフェ" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">1階 ｜ 朝7:30オープン</span>
+            <h4 class="card-heading">エキナカ朝カフェ＆モバイル受取</h4>
+            <p class="card-p">出社前のスイッチを入れるスペシャリティコーヒーと焼きたてクロワッサン。電車内からスマホで注文し、改札横ロッカーですぐ受け取れるスマートピックアップも実証中。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Commuter Fashion & Smart Services -->
+  <section id="commuter" class="section-padding bg-slate">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-en">Modern Commuter Lifestyle</span>
+        <h3 class="section-title">ビジネスパーソンのための高機能アパレル＆時短メンテナンス</h3>
+        <p class="section-sub">「忙しい毎日に、最短で上質なスタイルを」オフィスカジュアルから靴磨きまで駅ナカで完結。</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="キャリアレディース通勤服" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">4階 ｜ キャリアレディース</span>
+            <h4 class="card-heading">自宅で洗える高機能オフィスカジュアル</h4>
+            <p class="card-p">シワにならず動きやすいセットアップや、走れるパンプス（シューフィッター足型計測常駐）など、働く女性のリアルな悩みに応える厳選ラインナップ。</p>
+          </div>
+        </div>
+
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="メンズイージーオーダー" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">6階 ｜ 紳士ビジネスフロア</span>
+            <h4 class="card-heading">スマホで2着目注文！スマートオーダー</h4>
+            <p class="card-p">初回のみ店頭で採寸すれば、2着目以降はスマホから簡単オーダー。出勤時に預けて帰宅時に受け取れるズボン裾上げ特急便（60分）もビジネスマンの味方です。</p>
+          </div>
+        </div>
+
+        <div class="card-modern">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80" alt="ルーフトップスカイテラス" class="card-img">
+          <div class="card-content">
+            <span class="card-kicker">屋上 (RF) ｜ スカイレールガーデン</span>
+            <h4 class="card-heading">電車と夕景を眺めるルーフトップテラス</h4>
+            <p class="card-p">駅ビル最上階に広がる開放的なウッドデッキテラス。退勤後のクラフトビールや、心地よい夜風を感じながらの気分転換に最適です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Point Card Loyalty & Transit Advantage -->
+  <section id="points" class="section-padding bg-white">
+    <div class="container">
+      <div class="point-box">
+        <div>
+          <span class="point-badge">沿線会員72万人 · 烏丸電鉄共通ポイント</span>
+          <h3 class="serif" style="font-size: 2.2rem; line-height: 1.3; margin-bottom: 1.25rem;">
+            烏丸電鉄の定期券をお持ちなら、<br>
+            乗るほど、降りるほどおトクに。
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.9375rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            親会社である烏丸電鉄のIC定期券データと連動。「お隣の中央駅へ行かなくても、烏丸駅で途中下車すればポイント3倍」「通勤定期券提示でテイクアウト5%還元」など、沿線住民の皆様だけの特別な優待をご用意しております。
+          </p>
+          <ul style="list-style: none; font-size: 0.875rem; line-height: 2; color: #e2e8f0;">
+            <li>✓ 定期券区間内の烏丸駅で途中下車＋1,000円利用で100pt進呈</li>
+            <li>✓ 平日18:00以降のエキチカ食品街はポイント3倍</li>
+            <li>✓ 沿線スーパー・タクシー・駅ナカ自販機でも1pt=1円で利用可能</li>
+          </ul>
+        </div>
+
+        <div class="point-sim-card">
+          <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: #7dd3fc;">
+            沿線通勤ポイント シミュレーター
+          </h4>
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">
+              月間のエキチカ・お買い物利用額
+            </label>
+            <select id="sim-amount" onchange="calcPoints()" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #ffffff; font-size: 0.875rem;">
+              <option value="10000">月 10,000 円（週1〜2回惣菜・カフェ）</option>
+              <option value="30000" selected>月 30,000 円（平日夕食＋手土産）</option>
+              <option value="50000">月 50,000 円（日常利用＋通勤服新調）</option>
+            </select>
+          </div>
+          <div style="background: rgba(0,0,0,0.25); padding: 1.25rem; border-radius: 6px; text-align: center;">
+            <span style="font-size: 0.75rem; color: #cbd5e1;">年間獲得想定ポイント</span>
+            <div id="sim-result" style="font-size: 2rem; font-weight: 800; color: #38bdf8; margin: 0.25rem 0;">
+              18,000 pt
+            </div>
+            <span style="font-size: 0.6875rem; color: #94a3b8;">（1ポイント＝1円として百貨店・電車運賃で利用可能）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Interactive Floor Directory -->
+  <section id="floors" class="section-padding bg-slate">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-en">Floor Guide</span>
+        <h3 class="section-title">全館フロアガイド（地下2階〜屋上）</h3>
+        <p class="section-sub">改札階（1階・地下1階・2階デッキ）からダイレクトイン。各階のショップと施設をご案内します。</p>
+      </div>
+
+      <div class="floor-tabs">
+        <button class="floor-btn" onclick="showFloor('RF')">RF 展望テラス</button>
+        <button class="floor-btn" onclick="showFloor('8F')">8F ダイニング</button>
+        <button class="floor-btn" onclick="showFloor('7F')">7F 書店・文具</button>
+        <button class="floor-btn" onclick="showFloor('6F')">6F 紳士オーダー</button>
+        <button class="floor-btn" onclick="showFloor('5F')">5F 生活・無印良品</button>
+        <button class="floor-btn" onclick="showFloor('4F')">4F 通勤レディース</button>
+        <button class="floor-btn" onclick="showFloor('3F')">3F コスメ・カフェ</button>
+        <button class="floor-btn" onclick="showFloor('2F')">2F デッキ直結口</button>
+        <button class="floor-btn active" onclick="showFloor('1F')">1F 中央改札直結</button>
+        <button class="floor-btn" onclick="showFloor('B1F')">B1F デパ地下惣菜</button>
+        <button class="floor-btn" onclick="showFloor('B2F')">B2F 銘菓・地下鉄連絡</button>
+      </div>
+
+      <div class="floor-display" id="floor-card">
+        <div>
+          <div class="floor-num" id="fl-num">1F</div>
+          <h4 id="fl-title" style="font-size: 1.35rem; font-weight: 800; color: #0f2b48; margin-bottom: 0.5rem;">
+            中央改札直結グランドフロア・エキナカ朝カフェ
+          </h4>
+          <p id="fl-connect" style="font-size: 0.8125rem; font-weight: 700; color: var(--c-rail-accent); margin-bottom: 1rem;">
+            烏丸電鉄 烏丸駅「中央改札口」正面直通（徒歩0分）
+          </p>
+          <p id="fl-desc" style="font-size: 0.875rem; color: #475569; line-height: 1.8;">
+            烏丸電鉄のメイン改札と直結した、最も人通りの多いフラッグシップフロア。朝7:30オープンのカフェ、即買いできる有名パティスリーの洋菓子、総合案内所が並びます。
+          </p>
+        </div>
+
+        <div>
+          <h5 style="font-size: 0.9375rem; font-weight: 700; color: #0f2b48; border-bottom: 2px solid var(--c-rail-accent); padding-bottom: 0.4rem; margin-bottom: 1rem;">
+            主要ショップ・お買い場
+          </h5>
+          <ul id="fl-shops" style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem; color: #334155;">
+            <li>・スターバックス コーヒー（朝7:30開店）</li>
+            <li>・特選スイーツセレクション（手土産即配）</li>
+            <li>・カラスマPoint総合ステーション・案内所</li>
+            <li>・青山フラワーマーケット（駅ナカ生花）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Access & Direct Concourse -->
+  <section id="access" class="section-padding bg-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-en">Transit Access & Map</span>
+        <h3 class="section-title">交通アクセス・改札直結ルート</h3>
+        <p class="section-sub">雨の日も傘を差さずにそのまま入館いただけます。</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid var(--c-gray-border); border-radius: 8px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+        <div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f2b48; margin-bottom: 1rem;">
+            鉄道各線からのアクセス
+          </h4>
+          <ul style="list-style: none; font-size: 0.875rem; color: #334155; line-height: 2;">
+            <li><strong>烏丸電鉄「烏丸駅」：</strong> 中央改札口より徒歩0分（1階直結）/ 南改札口より徒歩1分（地下1階直結）</li>
+            <li><strong>JR各線「烏丸駅」：</strong> 東口ペデストリアンデッキ経由 徒歩1分（2階直結）</li>
+            <li><strong>市営地下鉄東西線・烏丸線：</strong> 地下連絡通路経由 徒歩2分（地下2階直結）</li>
+          </ul>
+          <div style="margin-top: 1rem; padding: 1rem; background: #e0f2fe; border-left: 3px solid #0284c7; font-size: 0.8125rem; color: #0369a1;">
+            <strong>お隣の「JR中央駅」をご利用のお客様へ：</strong><br>
+            中央駅より各停電車で1駅（所要時間約2分）。通勤定期券区間内のお客様は途中下車運賃不要でお買い物いただけます。
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f2b48; margin-bottom: 1rem;">
+            駐車場のご案内（駅ビル提携）
+          </h4>
+          <p style="font-size: 0.875rem; color: #334155; line-height: 1.8; margin-bottom: 1rem;">
+            <strong>烏丸駅前地下公共駐車場（提携・400台収容）：</strong><br>
+            ・利用時間：6:00 〜 24:00<br>
+            ・お買い上げ優待：館内で合計3,000円以上お買い上げで1時間無料、5,000円以上で2時間無料。
+          </p>
+          <p style="font-size: 0.75rem; color: #64748b;">
+            ※土日祝日は駅前ロータリーが混雑いたします。公共交通機関（烏丸電鉄各線）のご利用をお勧めいたします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Corporate Profile & 45 Years History -->
+  <section id="company" class="section-padding bg-slate">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-en">Corporate Heritage</span>
+        <h3 class="section-title">会社概要・創業45年のあゆみ</h3>
+        <p class="section-sub">昭和56年の駅ビル開業以来、沿線通勤・通学客の皆様の暮らしとともに歩み続けてまいりました。</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 2rem; border-radius: 8px; border: 1px solid var(--c-gray-border);">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: #334155;">
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <th style="padding: 0.75rem 0; width: 30%; text-align: left; color: #0f2b48;">社名</th>
+            <td style="padding: 0.75rem 0;">株式会社 烏丸電鉄百貨店（Karasuma Railway Department Store Co., Ltd.）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <th style="padding: 0.75rem 0; text-align: left; color: #0f2b48;">親会社</th>
+            <td style="padding: 0.75rem 0;">烏丸電気鉄道株式会社（出資比率 100%）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <th style="padding: 0.75rem 0; text-align: left; color: #0f2b48;">創業</th>
+            <td style="padding: 0.75rem 0;">昭和56年（1981年）10月（創業45周年）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <th style="padding: 0.75rem 0; text-align: left; color: #0f2b48;">所在地</th>
+            <td style="padding: 0.75rem 0;">〒600-0001 ○○県政令市烏丸区烏丸通1丁目1番地（烏丸電鉄ターミナルビル）</td>
+          </tr>
+          <tr>
+            <th style="padding: 0.75rem 0; text-align: left; color: #0f2b48;">事業内容</th>
+            <td style="padding: 0.75rem 0;">百貨店業、駅ナカ商業施設運営、沿線共通ポイントカード事業</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4 style="font-size: 1.15rem; color: #ffffff;">株式会社 烏丸電鉄百貨店</h4>
+        <p style="margin-bottom: 0.75rem; line-height: 1.8;">
+          〒600-0001 ○○県政令市烏丸区烏丸通1丁目1番地<br>
+          代表電話：000-888-1981 ｜ 烏丸駅中央改札口直結<br>
+          烏丸電鉄グループ中核百貨店
+        </p>
+        <p style="font-size: 0.75rem; color: #64748b;">
+          日本百貨店協会加盟店 ｜ 沿線共通カラスマPoint加盟店
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>お買い場案内</h4>
+        <ul>
+          <li><a href="#ekichika">エキチカ ごちそうマルシェ</a></li>
+          <li><a href="#ekichika">スイーツストリート</a></li>
+          <li><a href="#commuter">キャリア通勤アパレル</a></li>
+          <li><a href="#commuter">紳士ビジネスオーダー</a></li>
+          <li><a href="#floors">全館フロアガイド</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>サービス・ポイント</h4>
+        <ul>
+          <li><a href="#points">カラスマPoint特典</a></li>
+          <li><a href="#points">定期券途中下車ボーナス</a></li>
+          <li><a href="#access">駅直結ルートマップ</a></li>
+          <li><a href="#access">手荷物一時預かり・ロッカー</a></li>
+          <li><a href="#access">雨の日ビニール傘貸出</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>企業情報</h4>
+        <ul>
+          <li><a href="#company">会社概要・役員</a></li>
+          <li><a href="#company">烏丸電鉄グループ情報</a></li>
+          <li><a href="#">沿線まちづくり・CSR活動</a></li>
+          <li><a href="#">採用情報（新卒・キャリア）</a></li>
+          <li><a href="#">個人情報保護方針</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <p>&copy; 1981-2026 KARASUMA RAILWAY DEPARTMENT STORE CO., LTD. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const karasumaFloors = {
+      'RF': {
+        num: 'RF',
+        title: 'スカイレールガーデン・展望テラス',
+        connect: '最上階直通エレベーター利用',
+        desc: '烏丸駅に発着する電鉄車両や近郊を走る新幹線のパノラマビューを楽しめるウッドデッキテラス。夜はオフィス帰りのクラフトビールや沿線グルメをお楽しみいただけます。',
+        shops: ['・スカイレールビューテラス（トレインビュー席）', '・沿線クラフトビールスタンド「TRAIN BEER TAP」', '・エキウエ菜園「烏丸グリーンファーム」', '・コワーキングベンチ（無料Wi-Fi完備）']
+      },
+      '8F': {
+        num: '8F',
+        title: '烏丸エキウエダイニング・味の街',
+        connect: '中央改札口からエレベーターで直通（約60秒）',
+        desc: '沿線契約農家の野菜を使ったイタリアン、地元老舗の江戸前寿司、出張帰りにサクッと寄れる立ち呑みワインバルまで。終電時間を気にせず夜22時まで落ち着いて過ごせる美食街です。',
+        shops: ['・エキウエ和食「烏丸茶寮」（沿線地酒20種）', '・石窯ピッツァ＆グリル「CUCINA KARASUMA」', '・牛たん・炭火焼「仙台青葉」', '・名物手打ち蕎麦「更科」']
+      },
+      '7F': {
+        num: '7F',
+        title: '大型書店・文具・トラベル・電鉄ギャラリー',
+        connect: 'エスカレーター・エレベーター直通',
+        desc: '沿線最大級の蔵書数を誇る大型書店。ビジネス書や資格試験本が充実し、電鉄グループの旅行カウンターや沿線アーカイブ写真展も定期開催。',
+        shops: ['・ジュンク堂書店（在庫20万冊）', '・伊東屋 ステーショナリーサロン（名入れ万年筆）', '・烏丸電鉄 トラベルセンター（特急券予約）', '・7階イベントホール（沿線クラフトフェア）']
+      },
+      '6F': {
+        num: '6F',
+        title: '紳士ビジネス・オーダーサロン・シューズリペア',
+        connect: 'エスカレーター・中央エレベーター直通',
+        desc: '多忙なビジネスパーソンのために、出勤前や退勤時にスーツの寸法直し、オーダーシャツ、鞄の修理を承る高機能メンズフロア。即日靴磨きスタンドも好評です。',
+        shops: ['・カラスマ・スマートイージーオーダー', '・紳士通勤ビジネスアパレル（高機能スーツ）', '・ビジネスラゲッジ（TUMI・PORTER）', '・靴修理＆靴磨き「ミスターミニット」（最短15分）']
+      },
+      '5F': {
+        num: '5F',
+        title: 'リビング・インテリア・無印良品',
+        connect: 'エスカレーター・中央エレベーター直通',
+        desc: '沿線のベッドタウンに暮らすファミリーや単身者の住まいを彩る生活雑貨フロア。大型無印良品を核に、オーダーカーテンやリラクゼーションサロンが並びます。',
+        shops: ['・無印良品 烏丸電鉄ビル店（大型店限定冷食）', '・眠りの相談所・エアウィーヴ / 西川', '・キッチン＆インテリア「KEYUCA」', '・リフレクソロジー「ラフィネ」（退勤時クイック）']
+      },
+      '4F': {
+        num: '4F',
+        title: 'キャリアレディース・オフィスカジュアル',
+        connect: 'エスカレーター・中央エレベーター直通',
+        desc: '政令市のオフィス街へ通う女性のための通勤服特化フロア。シワになりにくいセットアップ、痛くなりにくい走れるパンプス、時短コーディネート相談が好評です。',
+        shops: ['・通勤スタイルセレクト（エポカ・セオリー）', '・コンフォートシューズサロン（足型計測）', '・ワコール・トリンプ プレミアムサロン', '・パーソナルスタイリングサロン（骨格診断）']
+      },
+      '3F': {
+        num: '3F',
+        title: 'ビューティ＆コスメ・トレンド雑貨・カフェ',
+        connect: 'エスカレーター・中央エレベーター直通',
+        desc: '国内外のトップコスメブランドが一堂に集結。タッチアップからクイック眉カット、オーガニックコスメまで、働く女性の毎日に寄り添うビューティフロアです。',
+        shops: ['・コスメティックガーデン（資生堂・シャネル・Dior）', '・オーガニック「Cosme Kitchen」', '・クイックネイル＆アイブロウサロン（朝8:30〜）', '・アフタヌーンティー・ティールーム']
+      },
+      '2F': {
+        num: '2F',
+        title: 'ペデストリアンデッキ直結・婦人靴・服飾雑貨',
+        connect: 'JR烏丸駅・私鉄烏丸駅 ペデストリアンデッキ直結（徒歩0分）',
+        desc: '駅から雨に濡れずにそのまま入れる2階メインエントランス。傘やストールなどの季節雑貨、最新ハンドバッグ、アクセサリーが並び、待ち合わせスポットとしても親しまれています。',
+        shops: ['・ハンドバッグコレクション（通勤PC対応バッグ）', '・シーズンパーツ（雨傘・日傘・スカーフ）', '・アクセサリーステーション（4℃・アガット）', '・カラスマ・ステーションカフェ']
+      },
+      '1F': {
+        num: '1F',
+        title: '中央改札直結グランドフロア・エキナカ朝カフェ',
+        connect: '烏丸電鉄 烏丸駅「中央改札口」正面直通（徒歩0分）',
+        desc: '烏丸電鉄のメイン改札と直結した、最も人通りの多いフラッグシップフロア。朝7:30オープンのカフェ、即買いできる有名パティスリーの洋菓子、総合案内所が並びます。',
+        shops: ['・スターバックス コーヒー（平日朝7:30開店）', '・特選スイーツセレクション（手土産即配）', '・カラスマPoint総合ステーション・案内所', '・青山フラワーマーケット（駅ナカ生花）']
+      },
+      'B1F': {
+        num: 'B1F',
+        title: 'エキチカ「ごちそうマルシェ」デリカ・生鮮・ベーカリー',
+        connect: '烏丸電鉄「地下改札口」および地下鉄烏丸線直結',
+        desc: '改札を抜けて30秒で夕食が揃う、圧倒的アクセスのエキチカ。有名シェフ監修の和洋中惣菜、産直朝獲れ鮮魚、焼きたてパンの香ばしい匂いが夕方の通勤客を迎えます。',
+        shops: ['・RF1（野菜たっぷりヘルシー惣菜）', '・柿安ダイニング（黒毛和牛弁当）', '・神戸屋キッチン（毎時焼きたてベーカリー）', '・生鮮市場「魚の北辰・肉処 清水」']
+      },
+      'B2F': {
+        num: 'B2F',
+        title: '全国銘菓ストリート・地酒・地下鉄乗り換え連絡口',
+        connect: '市営地下鉄東西線・烏丸線 連絡地下通路直通',
+        desc: '地下鉄への乗り換え導線上に位置し、手土産選びに最適なフロア。老舗和菓子から全国のトレンドスイーツ、沿線ワイナリーの限定酒までをコンパクトに凝縮。',
+        shops: ['・老舗和菓子処（とらや・鶴屋吉信）', '・エキチカ洋菓子（モロゾフ・ヨックモック）', '・リカーワールド（沿線ワイン＆地酒セラー）', '・全国共通百貨店商品券カウンター']
+      }
+    };
+
+    function showFloor(flKey) {
+      const d = karasumaFloors[flKey];
+      if (!d) return;
+      document.getElementById('fl-num').innerText = d.num;
+      document.getElementById('fl-title').innerText = d.title;
+      document.getElementById('fl-connect').innerText = d.connect;
+      document.getElementById('fl-desc').innerText = d.desc;
+
+      const ul = document.getElementById('fl-shops');
+      ul.innerHTML = '';
+      d.shops.forEach(s => {
+        const li = document.createElement('li');
+        li.innerText = s;
+        ul.appendChild(li);
+      });
+
+      document.querySelectorAll('.floor-btn').forEach(btn => {
+        if (btn.innerText.startsWith(flKey)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    function calcPoints() {
+      const val = parseInt(document.getElementById('sim-amount').value, 10);
+      // assume 5% average return on commuter benefits
+      const annual = Math.round(val * 12 * 0.05);
+      document.getElementById('sim-result').innerText = annual.toLocaleString() + ' pt';
+    }
+  </script>
+</body>
+</html>
